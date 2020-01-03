@@ -1,12 +1,12 @@
 # GettingCleaningData
 Week 4 Project for Getting and Cleaning Data  
 
----
-title: "README"
-author: "sharonevanscpt"
-date: "13/12/2019"
-output: html_document
----
+---  
+title: "README"  
+author: "sharonevanscpt"  
+date: "13/12/2019"  
+output: html_document  
+---  
 
 ## Introduction
 
