@@ -28,21 +28,21 @@ There is a description here: <http://archive.ics.uci.edu/ml/datasets/Human+Activ
 
 There is only one code required to tidy the data provided and run all of the required steps.  It is called "run_analysis.R" and it does the following:
 
-0. Imports data and organises it
-i) imports labels, then training data, then test data then adds headers, subject column and activity label column
-1. Merges the training and the test sets to create one data set
-i) the test set is added below the training set
-2. Extracts only the measurements on the mean and standard deviation for each measurement
-i) first columns with duplicated names are removed
-ii) second, the subject, activity, mean and std columns are kept in an "extract" dataset
-3. Uses descriptive activity names to name the activities in the data set
-i) replaces activity numbers with official label names
-4. Appropriately labels the data set with descriptive variable names
-i) to follow tidy data principles the brackets, dashes and underscores are removed
-ii) lowercase font is used
-iii) word contractions are expanded for clarity
-5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject
-i) the dataset produced by my code is a "wide" tidy dataset and the mean of each variable has been calculated for each activity and subject, leaving 180 rows (as there are 6 activities and 30 subjects.
+0. Imports data and organises it  
+i) imports labels, then training data, then test data then adds headers, subject column and activity label column  
+1. Merges the training and the test sets to create one data set  
+i) the test set is added below the training set  
+2. Extracts only the measurements on the mean and standard deviation for each measurement  
+i) first columns with duplicated names are removed  
+ii) second, the subject, activity, mean and std columns are kept in an "extract" dataset  
+3. Uses descriptive activity names to name the activities in the data set  
+i) replaces activity numbers with official label names  
+4. Appropriately labels the data set with descriptive variable names  
+i) to follow tidy data principles the brackets, dashes and underscores are removed  
+ii) lowercase font is used  
+iii) word contractions are expanded for clarity  
+5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject  
+i) the dataset produced by my code is a "wide" tidy dataset and the mean of each variable has been calculated for each activity and subject, leaving 180 rows (as there are 6 activities and 30 subjects.  
 
 The "run_analysis.R" code looks like this:
 
