@@ -95,12 +95,4 @@ I'd like to also provide units - but there were no units provided in the origina
 
 There are 180 rows and 88 columns in the final dataset
 
-```{r echo=FALSE, results='asis'}
-library(knitr)
-library(dplyr, warn.conflicts=FALSE, quietly = TRUE)
-source("run_analysis.R")
-output <- samsungcleaner("D:/sevans/DataAnalysis/Training/GettingCleaningData","samsunoutputdata.txt")
-out2 <- data.frame(names=names(output))
-for (i in 1:88) { out2$class[[i]] <- class(output[[i]])}
-kable(out2[1:88, ],caption="List of names")
-```
+
