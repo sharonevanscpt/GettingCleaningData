@@ -40,7 +40,7 @@ samsungcleaner <- function(directory,outputname) {
   
   ## 2: Extract ONLY the measurements on the mean and standard deviation for each measurement
   cleaned <- subset(alldata, select=which(!duplicated(names(alldata)))) ## remove duplicate columns
-  extract <- select(cleaned,matches("subject|activitylabel|mean|std")) ## extract
+  extract <- select(cleaned,matches("subject|activitylabel|mean\\(\\)|std\\(\\)")) ## extract means and stds
   
   ## 3: Use descriptive acivity names to name the activities in the data set
   for (i in 1:6) {
@@ -49,17 +49,21 @@ samsungcleaner <- function(directory,outputname) {
   extract <- select(extract,matches("subject|activityname|mean|std")) ## remove activity label
   
   ## 4: Appropriately labels the data set with descriptive variable names
-  names(extract) <- sub("\\(\\)","",names(extract),)
-  names(extract) <- gsub("\\-","",names(extract),)
-  names(extract) <- gsub("\\_","",names(extract),)
-  names(extract) <- sub("^t","Time",names(extract),)
-  names(extract) <- sub("^f","Frequency",names(extract),)
-  names(extract) <- sub("Acc","Acceleration",names(extract),)
-  names(extract) <- tolower(names(extract))
+  names(extract) <- sub("\\(\\)","",names(extract),) ## remove brackets
+  names(extract) <- gsub("\\-","",names(extract),) ## meove dashes
+  names(extract) <- gsub("\\_","",names(extract),) ## remove underscores
+  names(extract) <- sub("^t","Time",names(extract),) ## expand initial t to Time
+  names(extract) <- sub("^f","Frequency",names(extract),) ## expand initial f to Frequency
+  names(extract) <- sub("Acc","Accelerometer",names(extract),) ## expand Acc to Accelerometer
+  names(extract) <- sub("Gyro","Gyroscope",names(extract),) ## expand Gyro to Gyroscope
+  names(extract) <- sub("Mag","Magnitude",names(extract),) ## expand Mag to Magnitude
+  names(extract) <- sub("std","standarddeviation",names(extract),) ## expand std to standarddeviation
+  names(extract) <- tolower(names(extract)) ## change to lowercase for tidiness
   
   ## 5: From the data set in step 4, create a second, independent, tidy data set with the
   ##    average of each variable for each activity and each subject.
-  keepnames <- names(extract[2:87]) ## select required variables to calculate the means
+  enn <- length(names(extract))
+  keepnames <- names(extract[3:enn-1]) ## select required variables to calculate the means
   
   output <- extract %>% 
     group_by(subject,activityname) %>% ## set group_by to set subject and activity
