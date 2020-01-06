@@ -1,10 +1,3 @@
----  
-title: "CodeBook"  
-author: "sharonevanscpt"  
-date: "02/01/2020"  
-output: html_document  
----  
-
 ## Introduction
 
 This is an R Markdown document to describe the variables, data and any transformations or work that I've done to clean up the data for this project.
@@ -77,17 +70,9 @@ meanFreq(): Weighted average of the frequency components to obtain a mean freque
 ~~skewness(): skewness of the frequency domain signal~~  
 ~~kurtosis(): kurtosis of the frequency domain signal~~  
 ~~bandsEnergy(): Energy of a frequency interval within the 64 bins of the FFT of each window.~~  
-angle(): Angle between to vectors.  
+~~angle(): Angle between to vectors.~~  
 
->Additional vectors obtained by averaging the signals in a signal window sample. These are used on the angle() variable:  
->gravityMean  
-tBodyAccMean  
-tBodyAccJerkMean  
-tBodyGyroMean  
-tBodyGyroJerkMean  
-
->Notes:  
->======  
+>Notes  
 >* Features are normalized and bounded within [-1,1].  
 >* Each feature vector is a row on the 'X' and 'y' files.  
 >* The units used for the accelerations (total and body) are 'g's (gravity of earth -> 9.80665 m/seg2).  
@@ -95,10 +80,80 @@ tBodyGyroJerkMean
 
 ## Code Book for FINAL Dataset
 
-The tables below describe each variable in the final tidy dataset:
+The table below describes each variable in the final tidy dataset:
 
-I'd like to also provide units - but there were no units provided in the original data, so all I know is what I've done to modify the data.
+Accleration units = m/seg^2^  
+Gyroscrope Units = rad/seg
 
-There are 180 rows and 88 columns in the final dataset
+There are 180 rows and 68 columns in the final *wide* tidy dataset
 
-
+ | names | class | unit |   
+ | ---- | ---- | ---- |
+ | subject | integer |   |   
+ | activityname | character |   |   
+ | timebodyaccelerometermeanx | numeric | m/seg^2^ |   
+ | timebodyaccelerometermeany | numeric | m/seg^2^ |   
+ | timebodyaccelerometermeanz | numeric | m/seg^2^ |   
+ | timebodyaccelerometerstandarddeviationx | numeric | m/seg^2^ | 
+ | timebodyaccelerometerstandarddeviationy | numeric | m/seg^2^ | 
+ | timebodyaccelerometerstandarddeviationz | numeric | m/seg^2^ | 
+ | timegravityaccelerometermeanx | numeric | m/seg^2^ | 
+ | timegravityaccelerometermeany | numeric | m/seg^2^ | 
+ | timegravityaccelerometermeanz | numeric | m/seg^2^ | 
+ | timegravityaccelerometerstandarddeviationx | numeric | m/seg^2^ | 
+ | timegravityaccelerometerstandarddeviationy | numeric | m/seg^2^ | 
+ | timegravityaccelerometerstandarddeviationz | numeric | m/seg^2^ | 
+ | timebodyaccelerometerjerkmeanx | numeric | m/seg^2^ | 
+ | timebodyaccelerometerjerkmeany | numeric | m/seg^2^ | 
+ | timebodyaccelerometerjerkmeanz | numeric | m/seg^2^ | 
+ | timebodyaccelerometerjerkstandarddeviationx | numeric | m/seg^2^ | 
+ | timebodyaccelerometerjerkstandarddeviationy | numeric | m/seg^2^ | 
+ | timebodyaccelerometerjerkstandarddeviationz | numeric | m/seg^2^ | 
+ | timebodygyroscopemeanx | numeric | rad/seg | 
+ | timebodygyroscopemeany | numeric | rad/seg | 
+ | timebodygyroscopemeanz | numeric | rad/seg | 
+ | timebodygyroscopestandarddeviationx | numeric | rad/seg | 
+ | timebodygyroscopestandarddeviationy | numeric | rad/seg | 
+ | timebodygyroscopestandarddeviationz | numeric | rad/seg | 
+ | timebodygyroscopejerkmeanx | numeric | rad/seg | 
+ | timebodygyroscopejerkmeany | numeric | rad/seg | 
+ | timebodygyroscopejerkmeanz | numeric | rad/seg | 
+ | timebodygyroscopejerkstandarddeviationx | numeric | rad/seg | 
+ | timebodygyroscopejerkstandarddeviationy | numeric | rad/seg | 
+ | timebodygyroscopejerkstandarddeviationz | numeric | rad/seg | 
+ | timebodyaccelerometermagnitudemean | numeric | m/seg^2^ | 
+ | timebodyaccelerometermagnitudestandarddeviation | numeric | m/seg^2^ | 
+ | timegravityaccelerometermagnitudemean | numeric | m/seg^2^ | 
+ | timegravityaccelerometermagnitudestandarddeviation | numeric | m/seg^2^ | 
+ | timebodyaccelerometerjerkmagnitudemean | numeric | m/seg^2^ | 
+ | timebodyaccelerometerjerkmagnitudestandarddeviation | numeric | m/seg^2^ | 
+ | timebodygyroscopemagnitudemean | numeric | rad/seg | 
+ | timebodygyroscopemagnitudestandarddeviation | numeric | rad/seg | 
+ | timebodygyroscopejerkmagnitudemean | numeric | rad/seg | 
+ | timebodygyroscopejerkmagnitudestandarddeviation | numeric | rad/seg | 
+ | frequencybodyaccelerometermeanx | numeric | m/seg^2^ | 
+ | frequencybodyaccelerometermeany | numeric | m/seg^2^ | 
+ | frequencybodyaccelerometermeanz | numeric | m/seg^2^ | 
+ | frequencybodyaccelerometerstandarddeviationx | numeric | m/seg^2^ | 
+ | frequencybodyaccelerometerstandarddeviationy | numeric | m/seg^2^ | 
+ | frequencybodyaccelerometerstandarddeviationz | numeric | m/seg^2^ | 
+ | frequencybodyaccelerometerjerkmeanx | numeric | m/seg^2^ | 
+ | frequencybodyaccelerometerjerkmeany | numeric | m/seg^2^ | 
+ | frequencybodyaccelerometerjerkmeanz | numeric | m/seg^2^ | 
+ | frequencybodyaccelerometerjerkstandarddeviationx | numeric | m/seg^2^ | 
+ | frequencybodyaccelerometerjerkstandarddeviationy | numeric | m/seg^2^ | 
+ | frequencybodyaccelerometerjerkstandarddeviationz | numeric | m/seg^2^ | 
+ | frequencybodygyroscopemeanx | numeric | rad/seg | 
+ | frequencybodygyroscopemeany | numeric | rad/seg | 
+ | frequencybodygyroscopemeanz | numeric | rad/seg | 
+ | frequencybodygyroscopestandarddeviationx | numeric | rad/seg | 
+ | frequencybodygyroscopestandarddeviationy | numeric | rad/seg | 
+ | frequencybodygyroscopestandarddeviationz | numeric | rad/seg | 
+ | frequencybodyaccelerometermagnitudemean | numeric | m/seg^2^ | 
+ | frequencybodyaccelerometermagnitudestandarddeviation | numeric | m/seg^2^ | 
+ | frequencybodybodyaccelerometerjerkmagnitudemean | numeric | m/seg^2^ | 
+ | frequencybodybodyaccelerometerjerkmagnitudestandarddeviation | numeric | m/seg^2^ | 
+ | frequencybodybodygyroscopemagnitudemean | numeric | rad/seg | 
+ | frequencybodybodygyroscopemagnitudestandarddeviation | numeric | rad/seg | 
+ | frequencybodybodygyroscopejerkmagnitudemean | numeric | rad/seg | 
+ | frequencybodybodygyroscopejerkmagnitudestandarddeviation | numeric | rad/seg | 
