@@ -43,15 +43,13 @@ samsungcleaner <- function(directory,outputname) {
   extract <- select(cleaned,matches("subject|activitylabel|mean\\(\\)|std\\(\\)")) ## extract means and stds
   
   ## 3: Use descriptive acivity names to name the activities in the data set
-  for (i in 1:6) {
+  for (i in 1:6) { ## replaces activity numbers with official label names
     extract$activityname[extract$activitylabel==i] <- as.character(actlabel$V2[[i]])
   }
   extract <- select(extract,matches("subject|activityname|mean|std")) ## remove activity label
   
   ## 4: Appropriately labels the data set with descriptive variable names
-  names(extract) <- sub("\\(\\)","",names(extract),) ## remove brackets
-  names(extract) <- gsub("\\-","",names(extract),) ## meove dashes
-  names(extract) <- gsub("\\_","",names(extract),) ## remove underscores
+  names(extract) <- gsub("\\(\\)|\\-|\\_","",names(extract),) ## remove brackets, dashes, underscores
   names(extract) <- sub("^t","Time",names(extract),) ## expand initial t to Time
   names(extract) <- sub("^f","Frequency",names(extract),) ## expand initial f to Frequency
   names(extract) <- sub("Acc","Accelerometer",names(extract),) ## expand Acc to Accelerometer
@@ -59,6 +57,8 @@ samsungcleaner <- function(directory,outputname) {
   names(extract) <- sub("Mag","Magnitude",names(extract),) ## expand Mag to Magnitude
   names(extract) <- sub("std","standarddeviation",names(extract),) ## expand std to standarddeviation
   names(extract) <- tolower(names(extract)) ## change to lowercase for tidiness
+  extract$activityname <- gsub("\\_","",extract$activityname,) ## remove underscores from activity names
+  extract$activityname <- tolower(extract$activityname) ## change to lowercase for tidiness
   
   ## 5: From the data set in step 4, create a second, independent, tidy data set with the
   ##    average of each variable for each activity and each subject.
