@@ -79,13 +79,19 @@ meanFreq(): Weighted average of the frequency components to obtain a mean freque
 ~~bandsEnergy(): Energy of a frequency interval within the 64 bins of the FFT of each window.~~  
 angle(): Angle between to vectors.  
 
->Additional vectors obtained by averaging the signals in a signal window sample. These are used on the angle() variable:
-
+>Additional vectors obtained by averaging the signals in a signal window sample. These are used on the angle() variable:  
 >gravityMean  
 tBodyAccMean  
 tBodyAccJerkMean  
 tBodyGyroMean  
 tBodyGyroJerkMean  
+
+>Notes:  
+>======  
+>* Features are normalized and bounded within [-1,1].  
+>* Each feature vector is a row on the 'X' and 'y' files.  
+>* The units used for the accelerations (total and body) are 'g's (gravity of earth -> 9.80665 m/seg2).  
+>* The gyroscope units are rad/seg.
 
 ## Code Book for FINAL Dataset
 
